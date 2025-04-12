@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Weather canvas will be inserted here by JavaScript -->
+    <div class="container">
+      <header class="glass">
+        <h1>Weather App</h1>
+      </header>
+
+      <main>
+        <section class="search-section">
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search for a city..."
+              autocomplete="off"
+              aria-label="Search for a city"
+            />
+            <button id="search-button" class="glass">
+              <i class="fas fa-search"></i> Search
+            </button>
+            <button id="location-button" class="glass">
+              <i class="fas fa-location-dot"></i> Use My Location
+            </button>
+          </div>
+          <div id="search-suggestions" class="search-suggestions glass"></div>
+
+          <div class="recent-searches glass">
+            <h3>Recent Searches</h3>
+            <div id="recent-searches-list" class="recent-searches-list"></div>
+          </div>
+        </section>
+
+        <section class="weather-section">
+          <div id="city-info" class="glass">
+            <h2 id="city-name">City Name</h2>
+            <p id="current-date">Date</p>
+          </div>
+
+          <div class="weather-data">
+            <div class="weather-card glass">
+              <div id="weather-icon"></div>
+              <div id="temperature">--°C</div>
+              <div id="weather-description">Weather Description</div>
+              <div class="weather-details">
+                <div class="detail glass">
+                  <span class="label">Feels Like</span>
+                  <span id="feels-like">--°C</span>
+                </div>
+                <div class="detail glass">
+                  <span class="label">Humidity</span>
+                  <span id="humidity">--%</span>
+                </div>
+                <div class="detail glass">
+                  <span class="label">Wind</span>
+                  <span id="wind-speed">-- m/s</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="aqi-card glass">
+              <h3>Air Quality Index</h3>
+              <div id="aqi-value">--</div>
+              <div id="aqi-description">AQI Description</div>
+              <div id="aqi-advice">Advice based on AQI</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="forecast-section glass">
+          <h2 class="forecast-title">5-Day Forecast</h2>
+          <div id="forecast-container" class="forecast-container">
+            <!-- Forecast cards will be added here dynamically -->
+          </div>
+        </section>
+      </main>
+
+      <footer class="glass">
+        <p>Data provided by OpenWeatherMap</p>
+      </footer>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-bubble glass" id="chatbot-bubble">
+      <i class="fas fa-comments chatbot-icon"></i>
+    </div>
+
+    <div class="chatbot-container glass" id="chatbot-container">
+      <div class="chatbot-header">
+        <div class="chatbot-title">Weather Assistant</div>
+        <div class="chatbot-close" id="chatbot-close">&times;</div>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages">
+        <!-- Messages will be added here dynamically -->
+      </div>
+      <div class="chatbot-input">
+        <input
+          type="text"
+          id="chatbot-input-field"
+          placeholder="Ask about weather..."
+          aria-label="Ask about weather"
+        />
+        <button class="chatbot-send" id="chatbot-send">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="loading" class="loading" style="display: none">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <script src="js/weather-animations.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
